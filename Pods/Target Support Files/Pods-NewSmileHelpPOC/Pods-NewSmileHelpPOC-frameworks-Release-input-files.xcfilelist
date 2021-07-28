@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-NewSmileHelpPOC/Pods-NewSmileHelpPOC-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
+${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
