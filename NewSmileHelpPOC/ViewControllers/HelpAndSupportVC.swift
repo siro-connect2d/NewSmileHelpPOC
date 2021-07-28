@@ -24,7 +24,8 @@ class HelpAndSupportVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getWebViewConfiguration { config in
+//        self.clearCookies()
+        self.getWebViewConfiguration { config in
             self.setupWebView(config: config)
             self.loadURL()
         }
@@ -39,6 +40,21 @@ class HelpAndSupportVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+    }
+    
+    private func clearCookies() {
+        let dataStore = WKWebsiteDataStore.default()
+        dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), completionHandler: { (records) in
+            for record in records{
+                // Clear the cookie of this site
+                if record.displayName.contains("newsmile.app") {
+                    WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {
+                        // Clear successfully
+                        print("Clear success\(record)")
+                    })
+                }
+            }
+        })
     }
 }
 
